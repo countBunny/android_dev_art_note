@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.countbunny.launchmodetest1.aidl.socket.TCPClientActivity">
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        />
+    <TextView
+        android:id="@+id/tvSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="20dp"
+        android:text="send"
+        android:enabled="false"
+        android:layout_gravity="bottom|end"
+        android:onClick="sendMsg"
+        />
+    <EditText
+        android:id="@+id/etInput"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="#fff"
+        android:layout_marginEnd="80dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:focusableInTouchMode="true"
+        android:hint="please write something..."
+        android:layout_gravity="bottom|start"
+        android:onClick="sendMsg"
+        />
+</FrameLayout>

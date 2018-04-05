@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.countbunny.launchmodetest1">
+
+    <permission
+        android:name="com.example.countbunny.launchmodetest1.permission.ACCESS_BOOK_SERVICE"
+        android:protectionLevel="normal"/>
+    <permission
+        android:name="com.example.countbunny.PROVIDER"
+        android:protectionLevel="normal"/>
+
+    <uses-permission android:name="com.example.countbunny.launchmodetest1.permission.ACCESS_BOOK_SERVICE"/>
+    <uses-permission android:name="com.example.countbunny.PROVIDER"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.ryq.task1.visit1"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:taskAffinity="com.ryq.task1">
+        </activity>
+        <activity
+            android:name=".ThirdActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:taskAffinity="com.ryq.task1">
+        </activity>
+        <activity android:name=".aidl.AidlActivity">
+        </activity>
+
+        <service
+            android:name=".aidl.messeger.MessengerService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":remote">
+        </service>
+
+        <activity android:name=".aidl.messeger.MessengerActivity">
+        </activity>
+
+        <service
+            android:name=".aidl.book.BookManagerService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":remote">
+        </service>
+
+        <activity android:name=".aidl.book.BookManagerActivity">
+        </activity>
+
+        <provider
+            android:name=".aidl.bookprovider.BookProvider"
+            android:authorities="com.example.countbunny.launchmodetest1.aidl.bookprovider"
+            android:permission="com.example.countbunny.PROVIDER"
+            android:process=":provider"/>
+
+        <activity android:name=".aidl.bookprovider.ProviderActivity">
+        </activity>
+
+        <service
+            android:name=".aidl.socket.TCPServerService"
+            android:process=":server_chat"/>
+
+        <activity android:name=".aidl.socket.TCPClientActivity">
+        </activity>
+
+        <service
+            android:name=".aidl.binderpool.BinderPoolService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":binderpool">
+        </service>
+
+        <activity android:name=".aidl.binderpool.BinderPoolActivity">
+        </activity>
+        <activity android:name=".viewevent.ViewEventActivity">
+        </activity>
+    </application>
+
+</manifest>
