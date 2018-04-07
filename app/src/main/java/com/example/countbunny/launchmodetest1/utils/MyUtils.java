@@ -1,5 +1,8 @@
 package com.example.countbunny.launchmodetest1.utils;
 
+import android.content.Context;
+import android.util.DisplayMetrics;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
@@ -30,5 +33,9 @@ public class MyUtils {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static final DisplayMetrics getScreenMetrics(Context context) {
+        return context.getApplicationContext().getResources().getDisplayMetrics();
     }
 }

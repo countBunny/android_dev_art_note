@@ -101,6 +101,10 @@
         </activity>
         <activity android:name=".viewevent.ViewEventActivity">
         </activity>
+        <activity android:name=".touchconflict.DemoActivity1">
+        </activity>
+        <activity android:name=".touchconflict.DemoActivity2">
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.countbunny.launchmodetest1.touchconflict.HorizontalScrollViewEx2
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.countbunny.launchmodetest1.touchconflict.DemoActivity2">
+
+</com.example.countbunny.launchmodetest1.touchconflict.HorizontalScrollViewEx2>
