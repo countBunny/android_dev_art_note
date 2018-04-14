@@ -105,6 +105,8 @@
         </activity>
         <activity android:name=".touchconflict.DemoActivity2">
         </activity>
+        <activity android:name=".customview.CustomViewActivity">
+        </activity>
     </application>
 
 </manifest>
