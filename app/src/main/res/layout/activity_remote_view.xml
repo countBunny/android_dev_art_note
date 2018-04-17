@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:showDividers="middle|end"
+    app:divider="@drawable/divider_1dp"
+    tools:context="com.example.countbunny.launchmodetest1.remoteview.RemoteViewActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:onClick="notify1"
+        android:text="notify style one"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:gravity="center"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="notify style custom"
+        android:onClick="notify2"
+        />
+</android.support.v7.widget.LinearLayoutCompat>

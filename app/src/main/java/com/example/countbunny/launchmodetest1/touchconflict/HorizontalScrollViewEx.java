@@ -60,7 +60,35 @@ public class HorizontalScrollViewEx extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        final int childCount = getChildCount();
+
         measureChildren(widthMeasureSpec, heightMeasureSpec);
+        int widthSpaceSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightSpaceSize = MeasureSpec.getSize(heightMeasureSpec);
+        int widthSpaceMode = MeasureSpec.getMode(widthMeasureSpec);
+        int heightSpaceMode = MeasureSpec.getMode(heightMeasureSpec);
+        boolean changeDimension = false;
+        if (childCount == 0) {
+            widthSpaceSize = 0;
+            heightSpaceSize = 0;
+            changeDimension = true;
+        } else if (widthSpaceMode == MeasureSpec.AT_MOST && heightSpaceMode == MeasureSpec.AT_MOST) {
+            View childView = getChildAt(0);
+            widthSpaceSize = childView.getMeasuredWidth();
+            heightSpaceSize = childView.getMeasuredHeight();
+            changeDimension = true;
+        } else if (widthSpaceMode == MeasureSpec.AT_MOST) {
+            View childView = getChildAt(0);
+            widthSpaceSize = childView.getMeasuredWidth() * childCount;
+            changeDimension = true;
+        } else if (heightSpaceMode == MeasureSpec.AT_MOST) {
+            View childView = getChildAt(0);
+            heightSpaceSize = childView.getMeasuredHeight();
+            changeDimension = true;
+        }
+        if (changeDimension) {
+            setMeasuredDimension(widthSpaceSize, heightSpaceSize);
+        }
     }
 
     @Override
@@ -71,7 +99,7 @@ public class HorizontalScrollViewEx extends ViewGroup {
             int totalWidth = 0;
             for (int i = 0; i < mChildrenSize; i++) {
                 View view = getChildAt(i);
-                if (null == view) {
+                if (null == view || view.getVisibility() == GONE) {
                     continue;
                 }
                 view.layout(totalWidth + l, t, r + totalWidth, +b);
@@ -165,5 +193,11 @@ public class HorizontalScrollViewEx extends ViewGroup {
             scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
             postInvalidate();
         }
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        mVelocityTracker.recycle();
+        super.onDetachedFromWindow();
     }
 }

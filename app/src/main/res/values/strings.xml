@@ -6,5 +6,6 @@
         <item>IPC机制test1-aidl</item>
         <item>View的事件体系</item>
         <item>自定义View的注意事项</item>
+        <item>RemoteView</item>
     </string-array>
 </resources>

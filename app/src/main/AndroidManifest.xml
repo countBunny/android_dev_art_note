@@ -107,6 +107,8 @@
         </activity>
         <activity android:name=".customview.CustomViewActivity">
         </activity>
+        <activity android:name=".remoteview.RemoteViewActivity">
+        </activity>
     </application>
 
 </manifest>
