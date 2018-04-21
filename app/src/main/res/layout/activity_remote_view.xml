@@ -27,4 +27,20 @@
         android:text="notify style custom"
         android:onClick="notify2"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:gravity="center"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="notify activity in differ process"
+        android:onClick="notify3"
+        />
+    <LinearLayout
+        android:id="@+id/remote_views_content"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+    </LinearLayout>
 </android.support.v7.widget.LinearLayoutCompat>

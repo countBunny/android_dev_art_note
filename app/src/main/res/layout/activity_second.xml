@@ -13,4 +13,13 @@
         android:layout_gravity="center"
         android:textAllCaps="false"
         />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:onClick="sendRemoteViews"
+        android:text="send remote view to another process"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:textAllCaps="false"
+        />
 </FrameLayout>
