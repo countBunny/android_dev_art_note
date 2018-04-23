@@ -40,10 +40,9 @@
             android:configChanges="screenLayout"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:taskAffinity="com.ryq.task1"
             android:process="com.test.differprocessactivity"
-            >
+            android:screenOrientation="portrait"
+            android:taskAffinity="com.ryq.task1">
         </activity>
         <activity
             android:name=".ThirdActivity"
@@ -111,17 +110,21 @@
         </activity>
         <activity android:name=".remoteview.RemoteViewActivity">
         </activity>
+
         <receiver android:name=".remoteview.MyAppWidgetProvider">
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/appwidget_provider_info"
-                >
+                android:resource="@xml/appwidget_provider_info">
             </meta-data>
+
             <intent-filter>
                 <action android:name="com.example.countbunny.launchmodetest1.remoteview.CLICK"/>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
         </receiver>
+
+        <activity android:name=".drawable.DrawableActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
-import android.support.v7.app.NotificationCompat;
 
 import com.example.countbunny.launchmodetest1.R;
 import com.example.countbunny.launchmodetest1.utils.MyUtils;

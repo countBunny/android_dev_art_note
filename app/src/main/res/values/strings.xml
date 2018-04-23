@@ -7,5 +7,6 @@
         <item>View的事件体系</item>
         <item>自定义View的注意事项</item>
         <item>RemoteView</item>
+        <item>Drawable test</item>
     </string-array>
 </resources>

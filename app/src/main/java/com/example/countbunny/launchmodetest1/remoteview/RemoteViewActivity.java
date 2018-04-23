@@ -9,10 +9,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Process;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -69,7 +69,7 @@ public class RemoteViewActivity extends AppCompatActivity {
     }
 
     public void notify1(View view) {
-        Notification notification = new NotificationCompat.Builder(this)
+        Notification notification = new NotificationCompat.Builder(this, "test1")
                 .setSmallIcon(R.mipmap.avatar)
                 .setLargeIcon(((BitmapDrawable) getResources().getDrawable(R.mipmap.avatar, getTheme())).getBitmap())
 //                .setTicker("hello world",getMyRemoteViews())
@@ -86,7 +86,7 @@ public class RemoteViewActivity extends AppCompatActivity {
     }
 
     public void notify2(View view) {
-        Notification notification = new NotificationCompat.Builder(this)
+        Notification notification = new NotificationCompat.Builder(this, "test2")
                 .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setTicker("hello world")
                 .setWhen(System.currentTimeMillis())
