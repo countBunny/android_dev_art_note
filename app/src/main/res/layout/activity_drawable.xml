@@ -42,5 +42,18 @@
             android:layout_weight="1"
             android:background="@drawable/scale_test"
             />
+        <View
+            android:id="@+id/clipView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/clip_test"
+            />
+        <View
+            android:id="@+id/cusView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
     </LinearLayout>
 </LinearLayout>
