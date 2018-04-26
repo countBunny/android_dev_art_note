@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.countbunny.launchmodetest1.aidl.AidlActivity;
+import com.example.countbunny.launchmodetest1.anims.AnimActivity;
 import com.example.countbunny.launchmodetest1.customview.CustomViewActivity;
 import com.example.countbunny.launchmodetest1.drawable.DrawableActivity;
 import com.example.countbunny.launchmodetest1.remoteview.RemoteViewActivity;
@@ -97,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
             } else if (getLayoutPosition() == 5) {
                 Intent intent = new Intent();
                 intent.setClass(itemView.getContext(), DrawableActivity.class);
+                itemView.getContext().startActivity(intent);
+            } else if (getLayoutPosition() == 6) {
+                Intent intent = new Intent();
+                intent.setClass(itemView.getContext(), AnimActivity.class);
                 itemView.getContext().startActivity(intent);
             }
         }

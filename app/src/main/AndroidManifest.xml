@@ -125,6 +125,8 @@
 
         <activity android:name=".drawable.DrawableActivity">
         </activity>
+        <activity android:name=".anims.AnimActivity">
+        </activity>
     </application>
 
 </manifest>
