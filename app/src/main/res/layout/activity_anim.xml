@@ -14,5 +14,16 @@
         android:text="add item"
         android:onClick="addItem"
         />
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="change width"
+        android:onClick="changeWidth1"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="change width2"
+        android:onClick="changeWidth2"
+        />
 </LinearLayout>
