@@ -16,6 +16,7 @@ import com.example.countbunny.launchmodetest1.customview.CustomViewActivity;
 import com.example.countbunny.launchmodetest1.drawable.DrawableActivity;
 import com.example.countbunny.launchmodetest1.remoteview.RemoteViewActivity;
 import com.example.countbunny.launchmodetest1.viewevent.ViewEventActivity;
+import com.example.countbunny.launchmodetest1.window.WindowTestActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -102,6 +103,10 @@ public class MainActivity extends AppCompatActivity {
             } else if (getLayoutPosition() == 6) {
                 Intent intent = new Intent();
                 intent.setClass(itemView.getContext(), AnimActivity.class);
+                itemView.getContext().startActivity(intent);
+            } else if (getLayoutPosition() == 7) {
+                Intent intent = new Intent();
+                intent.setClass(itemView.getContext(), WindowTestActivity.class);
                 itemView.getContext().startActivity(intent);
             }
         }

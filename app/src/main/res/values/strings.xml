@@ -9,5 +9,6 @@
         <item>RemoteView</item>
         <item>Drawable test</item>
         <item>Animation test</item>
+        <item>Window Manager test</item>
     </string-array>
 </resources>
