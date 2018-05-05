@@ -17,4 +17,12 @@
         android:gravity="center"
         android:onClick="addWindowFirst"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="add a dialog omit window token"
+        android:gravity="center"
+        android:onClick="addDialogInSpecialWay"
+        />
 </android.support.v7.widget.LinearLayoutCompat>

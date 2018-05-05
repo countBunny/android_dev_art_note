@@ -43,31 +43,31 @@
             android:launchMode="singleTask"
             android:process="com.test.differprocessactivity"
             android:screenOrientation="portrait"
-            android:taskAffinity="com.ryq.task1"></activity>
+            android:taskAffinity="com.ryq.task1" />
         <activity
             android:name=".ThirdActivity"
             android:configChanges="screenLayout"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:taskAffinity="com.ryq.task1"></activity>
-        <activity android:name=".aidl.AidlActivity"></activity>
+            android:taskAffinity="com.ryq.task1" />
+        <activity android:name=".aidl.AidlActivity" />
 
         <service
             android:name=".aidl.messeger.MessengerService"
             android:enabled="true"
             android:exported="false"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
-        <activity android:name=".aidl.messeger.MessengerActivity"></activity>
+        <activity android:name=".aidl.messeger.MessengerActivity" />
 
         <service
             android:name=".aidl.book.BookManagerService"
             android:enabled="true"
             android:exported="false"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
-        <activity android:name=".aidl.book.BookManagerActivity"></activity>
+        <activity android:name=".aidl.book.BookManagerActivity" />
 
         <provider
             android:name=".aidl.bookprovider.BookProvider"
@@ -75,31 +75,31 @@
             android:permission="com.example.countbunny.PROVIDER"
             android:process=":provider" />
 
-        <activity android:name=".aidl.bookprovider.ProviderActivity"></activity>
+        <activity android:name=".aidl.bookprovider.ProviderActivity" />
 
         <service
             android:name=".aidl.socket.TCPServerService"
             android:process=":server_chat" />
 
-        <activity android:name=".aidl.socket.TCPClientActivity"></activity>
+        <activity android:name=".aidl.socket.TCPClientActivity" />
 
         <service
             android:name=".aidl.binderpool.BinderPoolService"
             android:enabled="true"
             android:exported="false"
-            android:process=":binderpool"></service>
+            android:process=":binderpool" />
 
-        <activity android:name=".aidl.binderpool.BinderPoolActivity"></activity>
-        <activity android:name=".viewevent.ViewEventActivity"></activity>
-        <activity android:name=".touchconflict.DemoActivity1"></activity>
-        <activity android:name=".touchconflict.DemoActivity2"></activity>
-        <activity android:name=".customview.CustomViewActivity"></activity>
-        <activity android:name=".remoteview.RemoteViewActivity"></activity>
+        <activity android:name=".aidl.binderpool.BinderPoolActivity" />
+        <activity android:name=".viewevent.ViewEventActivity" />
+        <activity android:name=".touchconflict.DemoActivity1" />
+        <activity android:name=".touchconflict.DemoActivity2" />
+        <activity android:name=".customview.CustomViewActivity" />
+        <activity android:name=".remoteview.RemoteViewActivity" />
 
         <receiver android:name=".remoteview.MyAppWidgetProvider">
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/appwidget_provider_info"></meta-data>
+                android:resource="@xml/appwidget_provider_info" />
 
             <intent-filter>
                 <action android:name="com.example.countbunny.launchmodetest1.remoteview.CLICK" />
@@ -107,9 +107,15 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".drawable.DrawableActivity"></activity>
-        <activity android:name=".anims.AnimActivity"></activity>
-        <activity android:name=".window.WindowTestActivity"></activity>
+        <activity android:name=".drawable.DrawableActivity" />
+        <activity android:name=".anims.AnimActivity" />
+        <activity android:name=".window.WindowTestActivity" />
+        <activity android:name=".threadcontrol.ThreadTestActivity"></activity>
+
+        <service android:name=".threadcontrol.LocalIntentService"
+            android:exported="false"
+            android:process=":intentservice"
+            />
     </application>
 
 </manifest>

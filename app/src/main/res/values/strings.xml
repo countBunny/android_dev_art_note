@@ -10,5 +10,6 @@
         <item>Drawable test</item>
         <item>Animation test</item>
         <item>Window Manager test</item>
+        <item>线程与线程池 test</item>
     </string-array>
 </resources>

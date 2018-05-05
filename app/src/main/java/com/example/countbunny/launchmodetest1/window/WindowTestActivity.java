@@ -1,6 +1,7 @@
 package com.example.countbunny.launchmodetest1.window;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.countbunny.launchmodetest1.R;
@@ -131,5 +133,21 @@ public class WindowTestActivity extends AppCompatActivity {
         mLayoutParams.x = 100;
         mLayoutParams.y = 300;
         mWindowManager.addView(mFloatingButton, mLayoutParams);
+    }
+
+    public void addDialogInSpecialWay(View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
+            return;
+        }
+        Dialog dialog = new Dialog(getApplicationContext());
+        TextView textView = new TextView(this);
+        textView.setText("this is a toast!");
+        dialog.setContentView(textView);
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        } else {
+            Log.d("WindowTestActivity", "dialog window is not been created");
+        }
+        dialog.show();
     }
 }

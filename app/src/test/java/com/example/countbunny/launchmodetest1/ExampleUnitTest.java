@@ -1,6 +1,8 @@
 package com.example.countbunny.launchmodetest1;
 
 
+import org.junit.Test;
+
 import static junit.framework.Assert.assertEquals;
 
 

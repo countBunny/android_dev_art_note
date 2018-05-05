@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:divider="@drawable/divider_1dp"
+    app:showDividers="end|middle"
+    tools:context=".threadcontrol.ThreadTestActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="use AsyncTask"
+        android:onClick="startAsyncTask"
+        />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:progressBarStyleHorizontal"
+        android:indeterminate="false"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:padding="5dp"
+        tools:progress="50"
+        android:max="100"
+        android:progressDrawable="@drawable/layer_progress"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="async default is serialized"
+        android:onClick="startAsyncTask2"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="async executor in parallel way"
+        android:onClick="startAsyncTask3"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="intentService test"
+        android:onClick="startIntentService"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="threadPoolExecutor test"
+        android:onClick="startAllKindExecutors"
+        />
+</android.support.v7.widget.LinearLayoutCompat>
