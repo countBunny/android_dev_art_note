@@ -96,7 +96,7 @@ public class ThreadTestActivity extends AppCompatActivity {
         startService(intent);
         intent.putExtra("task_action", "com.countbunny.action.TASK2");
         startService(intent);
-        intent.putExtra("task_action", "com.countbunny.action.TASK3");
+        intent.putExtra("task_act  ion", "com.countbunny.action.TASK3");
         startService(intent);
     }
 
