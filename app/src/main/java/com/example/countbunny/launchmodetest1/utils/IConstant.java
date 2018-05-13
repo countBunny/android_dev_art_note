@@ -9,8 +9,11 @@ public interface IConstant {
 
     String EXTRA_REMOTE_VIEWS = "remote_view_extra";
 
+    int IO_BUFFERED_SIZE = 1024;
+
     interface RequestCode {
 
         int WINDOW_MODIFY = 0x100;
+        int OPERATE_EXTERNAL_STOTRAGE = 0x101;
     }
 }
