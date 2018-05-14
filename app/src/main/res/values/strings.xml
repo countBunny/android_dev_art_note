@@ -11,5 +11,6 @@
         <item>Animation test</item>
         <item>Window Manager test</item>
         <item>线程与线程池 test</item>
+        <item>ImageLoader test</item>
     </string-array>
 </resources>

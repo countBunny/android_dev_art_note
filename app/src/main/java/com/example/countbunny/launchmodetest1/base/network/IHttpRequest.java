@@ -4,7 +4,7 @@ import java.util.Map;
 
 public interface IHttpRequest {
 
-    void get(String url, Class clz, Map<String, String> params, Listener listener);
+    <T> Call get(String url, Class<T> clz, Map<String, String> params, Listener<T> listener);
 
     interface Listener<T> {
 
@@ -14,10 +14,19 @@ public interface IHttpRequest {
 
     }
 
+    interface Call{
+
+        boolean cancel();
+
+        <T> void execute(Class<T> clz, Listener<T> listener);
+
+        boolean isExecuted();
+    }
+
     abstract class Simple implements IHttpRequest {
 
         @Override
-        public void get(String url, Class clz, Map<String, String> params, Listener listener) {
+        public <T> Call get(String url, Class<T> clz, Map<String, String> params, Listener<T> listener) {
             if (null != params && !params.isEmpty()) {
                 StringBuilder sb = new StringBuilder(url);
                 sb.append("?");
@@ -27,6 +36,8 @@ public interface IHttpRequest {
                 sb.deleteCharAt(sb.length() - 1);
                 url = sb.toString();
             }
+            //no necessary to give an actually call
+            return null;
         }
     }
 }

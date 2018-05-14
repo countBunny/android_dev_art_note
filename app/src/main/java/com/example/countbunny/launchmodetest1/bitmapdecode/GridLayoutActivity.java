@@ -1,25 +1,24 @@
 package com.example.countbunny.launchmodetest1.bitmapdecode;
 
 import android.Manifest;
-import android.app.usage.NetworkStats;
-import android.app.usage.NetworkStatsManager;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.net.ConnectivityManagerCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.AbsListView;
 import android.widget.GridView;
 
 import com.example.countbunny.launchmodetest1.R;
+import com.example.countbunny.launchmodetest1.base.Apis;
+import com.example.countbunny.launchmodetest1.base.network.HttpFactory;
+import com.example.countbunny.launchmodetest1.base.network.IHttpRequest;
 import com.example.countbunny.launchmodetest1.utils.IConstant;
 
 public class GridLayoutActivity extends AppCompatActivity {
@@ -30,10 +29,15 @@ public class GridLayoutActivity extends AppCompatActivity {
 
     private ImageAdapter mAdapter;
 
+    private int mPage = 1;
+
+    private IHttpRequest.Call mCall;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid_layout);
+        initView();
         if (ContextCompat.checkSelfPermission
                 (this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -48,7 +52,6 @@ public class GridLayoutActivity extends AppCompatActivity {
             // load data
             loadData();
         }
-        initView();
     }
 
     private void initView() {
@@ -68,7 +71,17 @@ public class GridLayoutActivity extends AppCompatActivity {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
+                if (mCall != null && !mCall.isExecuted()) {
+                    //still requesting
+                    return;
+                }
+                if (totalItemCount - 5 < firstVisibleItem + visibleItemCount) {
+                    //loadMore
+                    if (mAdapter.isCanGetBitmapFromNetwork()&&mAdapter.isGridViewIdle()) {
+                        mPage++;
+                        realLoad();
+                    }
+                }
             }
         });
     }
@@ -87,12 +100,52 @@ public class GridLayoutActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         mAdapter.setCanGetBitmapFromNetwork(true);
                         mAdapter.notifyDataSetChanged();
+                        realLoad();
                     }
                 });
                 builder.setNegativeButton("否", null);
                 builder.show();
+            } else {
+                mAdapter.setCanGetBitmapFromNetwork(true);
+                realLoad();
             }
         }
+    }
+
+    private void realLoad() {
+        final int page = mPage;
+        mCall = HttpFactory.getHttpRequest()
+                .get(Apis.ImageApis.getApis().getWelfares(page, 20), BeautyRootBean.class, null,
+                        new IHttpRequest.Listener<BeautyRootBean>() {
+                            @Override
+                            public void onSuccess(final BeautyRootBean result) {
+                                if (!result.error) {
+                                    mGridView.post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            if (page > 1) {
+                                                mAdapter.getData().addAll(result.results);
+                                                mAdapter.notifyDataSetChanged();
+                                            } else {
+                                                mAdapter.setData(result.results);
+                                            }
+                                        }
+                                    });
+                                } else {
+                                    if (mPage>1) {
+                                        mPage--;
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onFailed(String failMessage) {
+                                if (mPage>1) {
+                                    mPage--;
+                                }
+                                Log.e(TAG, failMessage);
+                            }
+                        });
     }
 
     @Override

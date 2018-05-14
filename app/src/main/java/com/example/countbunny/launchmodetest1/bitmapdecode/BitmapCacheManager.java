@@ -1,6 +1,5 @@
 package com.example.countbunny.launchmodetest1.bitmapdecode;
 
-import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -54,6 +53,7 @@ public class BitmapCacheManager {
         try {
             mDiskLruCache = DiskLruCache.open(diskCacheDir, 1, 1, MAX_DISK);
             mIsDiskLruCacheCreated = true;
+            Log.d(TAG, "diskLruCache init success!");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -111,6 +111,7 @@ public class BitmapCacheManager {
             editor = mDiskLruCache.edit(key);
             if (null == editor) {
                 Log.d(TAG, "can't get editor from DiskLruCache");
+                return null;
             }
             OutputStream outputStream = editor.newOutputStream(0);
             if (MyUtils.downloadUrlToStream(url, outputStream)) {

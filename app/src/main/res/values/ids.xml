@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="image_loader_uri" type="id">1561</item>
+    <item name="image_url_identify" type="id">1562</item>
+    <item name="image_vh" type="id">1563</item>
 </resources>
