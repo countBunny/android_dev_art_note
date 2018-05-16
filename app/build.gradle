@@ -10,12 +10,31 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+}
+
+afterEvaluate {
+    println "afterEvaluate"
+    tasks.matching {
+        it.name.startsWith('dex')
+    }.each {
+        dx ->
+            def listFile = project.rootDir.absolutePath + '/app/maindexlist.txt'
+            println "root dir:"+ project.rootDir.absolutePath
+            println "dex task found: " + dx.name
+            if (dx.additionalParameters == null) {
+                dx.additionalParameters = []
+            }
+            dx.additionalParameters += '--multi-dex'
+            dx.additionalParameters += '--main-dex-list='+ listFile
+            dx.additionalParameters += '--minimal-main-dex'
     }
 }
 
@@ -29,5 +48,6 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$support_version"
     implementation "com.google.code.gson:gson:2.8.4"
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.android.support:multidex:1.0.3'
     testImplementation 'junit:junit:4.12'
 }
