@@ -121,6 +121,7 @@
             android:process=":intentservice" />
 
         <activity android:name=".bitmapdecode.GridLayoutActivity"
+                  android:configChanges="orientation|screenLayout"
             android:hardwareAccelerated="true"
             >
 

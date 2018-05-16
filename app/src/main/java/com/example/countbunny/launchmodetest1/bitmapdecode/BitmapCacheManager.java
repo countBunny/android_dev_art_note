@@ -163,7 +163,8 @@ public class BitmapCacheManager {
             @Override
             protected void entryRemoved(boolean evicted, String key, Bitmap oldValue, Bitmap newValue) {
                 //more steps to release the resources contained in the oldValue
-                oldValue.recycle();
+                //there can be reference here， clear may lead crash
+//                oldValue.recycle();
             }
         };
     }
@@ -192,7 +193,7 @@ public class BitmapCacheManager {
             in = new BufferedInputStream(urlConnection.getInputStream(), IConstant.IO_BUFFERED_SIZE);
             bitmap = BitmapFactory.decodeStream(in);
             //diskCache must be null
-            BitmapDecodeUtils.compress(bitmap, reqWidth, reqHeight);
+            bitmap = BitmapDecodeUtils.compress(bitmap, reqWidth, reqHeight);
             mMemoryCache.put(url, bitmap);
         } catch (IOException e) {
             Log.e(TAG, "Error in downloading bitmap:" + e);

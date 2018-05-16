@@ -77,7 +77,8 @@ public class GridLayoutActivity extends AppCompatActivity {
                 }
                 if (totalItemCount - 5 < firstVisibleItem + visibleItemCount) {
                     //loadMore
-                    if (mAdapter.isCanGetBitmapFromNetwork()&&mAdapter.isGridViewIdle()) {
+                    if (mAdapter.isCanGetBitmapFromNetwork() && mAdapter.isGridViewIdle()
+                            && visibleItemCount <= totalItemCount && totalItemCount > 0) {
                         mPage++;
                         realLoad();
                     }
@@ -132,7 +133,7 @@ public class GridLayoutActivity extends AppCompatActivity {
                                         }
                                     });
                                 } else {
-                                    if (mPage>1) {
+                                    if (mPage > 1) {
                                         mPage--;
                                     }
                                 }
@@ -140,7 +141,7 @@ public class GridLayoutActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailed(String failMessage) {
-                                if (mPage>1) {
+                                if (mPage > 1) {
                                     mPage--;
                                 }
                                 Log.e(TAG, failMessage);

@@ -96,6 +96,7 @@ public class ImageLoader {
         target.setTag(TAG_KEY_URL, url);
         Bitmap bitmap = BitmapCacheManager.getInstance().getFromMemory(url);
         if (null != bitmap) {
+            Log.d(TAG, "loadBitmapFromMemCache, url" + url);
             target.setImageBitmap(bitmap);
             return;
         }
