@@ -123,8 +123,9 @@
         <activity
             android:name=".bitmapdecode.GridLayoutActivity"
             android:configChanges="orientation|screenLayout"
-            android:hardwareAccelerated="true"></activity>
-        <activity android:name=".jnindk.NDKTestActivity"></activity>
+            android:hardwareAccelerated="true" />
+        <activity android:name=".jnindk.NDKTestActivity" />
+        <activity android:name="com.example.countbunny.optimize.OptimizeActivity"></activity>
     </application>
 
 </manifest>

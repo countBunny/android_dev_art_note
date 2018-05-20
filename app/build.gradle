@@ -21,14 +21,14 @@ android {
 
     flavorDimensions "abi-platform"
 
-    productFlavors{
-        arm{
+    productFlavors {
+        arm {
             ndk {
                 abiFilter "armeabi-v7a"
             }
         }
-        x86{
-            ndk{
+        x86 {
+            ndk {
                 abiFilter "x86"
             }
         }

@@ -13,5 +13,6 @@
         <item>线程与线程池 test</item>
         <item>ImageLoader test</item>
         <item>jni test</item>
+        <item>系统优化专题</item>
     </string-array>
 </resources>
