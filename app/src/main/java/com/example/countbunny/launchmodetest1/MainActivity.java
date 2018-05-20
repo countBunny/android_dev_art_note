@@ -15,6 +15,7 @@ import com.example.countbunny.launchmodetest1.anims.AnimActivity;
 import com.example.countbunny.launchmodetest1.bitmapdecode.GridLayoutActivity;
 import com.example.countbunny.launchmodetest1.customview.CustomViewActivity;
 import com.example.countbunny.launchmodetest1.drawable.DrawableActivity;
+import com.example.countbunny.launchmodetest1.jnindk.NDKTestActivity;
 import com.example.countbunny.launchmodetest1.remoteview.RemoteViewActivity;
 import com.example.countbunny.launchmodetest1.threadcontrol.ThreadTestActivity;
 import com.example.countbunny.launchmodetest1.viewevent.ViewEventActivity;
@@ -117,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
             } else if (getLayoutPosition() == 9) {
                 Intent intent = new Intent();
                 intent.setClass(itemView.getContext(), GridLayoutActivity.class);
+                itemView.getContext().startActivity(intent);
+            } else if (getLayoutPosition() == 10) {
+                Intent intent = new Intent();
+                intent.setClass(itemView.getContext(), NDKTestActivity.class);
                 itemView.getContext().startActivity(intent);
             }
         }

@@ -120,12 +120,11 @@
             android:exported="false"
             android:process=":intentservice" />
 
-        <activity android:name=".bitmapdecode.GridLayoutActivity"
-                  android:configChanges="orientation|screenLayout"
-            android:hardwareAccelerated="true"
-            >
-
-        </activity>
+        <activity
+            android:name=".bitmapdecode.GridLayoutActivity"
+            android:configChanges="orientation|screenLayout"
+            android:hardwareAccelerated="true"></activity>
+        <activity android:name=".jnindk.NDKTestActivity"></activity>
     </application>
 
 </manifest>

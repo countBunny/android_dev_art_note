@@ -12,5 +12,6 @@
         <item>Window Manager test</item>
         <item>线程与线程池 test</item>
         <item>ImageLoader test</item>
+        <item>jni test</item>
     </string-array>
 </resources>

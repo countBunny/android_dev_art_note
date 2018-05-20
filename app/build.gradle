@@ -18,11 +18,36 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets.main{
+        jniLibs.srcDirs 'src/main/libs'
+    }
+
+
+    flavorDimensions "abi-platform"
+
+    productFlavors{
+        arm{
+            ndk {
+                abiFilter "armeabi-v7a"
+            }
+        }
+        x86{
+            ndk{
+                abiFilter "x86"
+            }
+        }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk'
+        }
+    }
 }
 
 afterEvaluate {
     println "afterEvaluate"
-    tasks.matching {
+    /*tasks.matching {
         it.name.startsWith('dex')
     }.each {
         dx ->
@@ -35,7 +60,7 @@ afterEvaluate {
             dx.additionalParameters += '--multi-dex'
             dx.additionalParameters += '--main-dex-list='+ listFile
             dx.additionalParameters += '--minimal-main-dex'
-    }
+    }*/
 }
 
 dependencies {
